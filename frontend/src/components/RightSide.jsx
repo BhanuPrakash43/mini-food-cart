@@ -35,8 +35,8 @@ function RightSide() {
     const totalAmount = getTotalAmount(items);
 
     return (
-      <div className="mt-4">
-        <div className="w-11/12 flex justify-between items-center p-2 mb-4 bg-white rounded-lg shadow">
+      <div className="mt-4 w-full">
+        <div className="w-full flex justify-between items-center p-2 mb-4 bg-gray-200 rounded-lg shadow">
           <h3 className="text-lg font-semibold capitalize">
             {person} Total Amount: ${totalAmount.toFixed(2)}
           </h3>
@@ -44,12 +44,12 @@ function RightSide() {
         {items.map(({ id, title, price, qty }) => (
           <div
             key={id}
-            className="w-11/12 flex justify-between items-center p-2 mb-2 bg-white rounded-lg shadow"
+            className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center p-2 mb-2 bg-gray-200 rounded-lg shadow"
           >
-            <div>
+            <div className="mb-2 sm:mb-0">
               <p className="text-lg font-semibold">{title}</p>
               <p className="text-gray-700">
-                ${price} x {qty} = ${(price * qty).toFixed(2)}
+                ${price.toFixed(2)} x {qty} = ${(price * qty).toFixed(2)}
               </p>
             </div>
             <div className="flex items-center">
@@ -80,16 +80,16 @@ function RightSide() {
   };
 
   return (
-    <div className="w-full md:w-1/3 p-5 mb-4">
-      <div className=" w-11/12 flex flex-col items-center rounded-lg mb-4 bg-white">
-        <div className="p-4">
-          <h3 className="text-lg text-center font-semibold capitalize">
+    <div className="w-full h-full p-5 overflow-y-auto">
+      <div className="w-full flex flex-col items-center rounded-lg mb-5 bg-white">
+        <div className="p-4 w-full">
+          <h2 className="text-2xl text-center font-semibold capitalize">
             Select meal for passenger
-          </h3>
+          </h2>
         </div>
         <button
           onClick={() => setSelectedPerson("person1")}
-          className={`w-full p-4 text-lg font-medium text-center ${
+          className={`w-full p-4 text-lg font-medium text-center rounded-t-lg ${
             selectedPerson === "person1"
               ? "bg-blue-500 text-white"
               : "bg-gray-200"

@@ -33,6 +33,7 @@ function cartReducer(state, action) {
           item.id === action.payload.id ? { ...item, qty: item.qty - 1 } : item
         ),
       };
+
     default:
       return state;
   }
