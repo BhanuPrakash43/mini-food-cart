@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Label = require("../models/Label.model");
 
-// Get all labels
+
 router.get("/", async (req, res) => {
   try {
     const labels = await Label.find();
@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Create a new label
+
 router.post("/", async (req, res) => {
   const { id, label } = req.body;
 

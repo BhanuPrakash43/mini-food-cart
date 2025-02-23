@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Meal = require("../models/Meal.model");
 
-// Get all meals
+
 router.get("/", async (req, res) => {
   try {
     const meals = await Meal.find();
@@ -12,11 +12,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Create a new meal
+
 router.post("/", async (req, res) => {
   const { id, title, starter, desert, price, labels, img, drinks } = req.body;
 
-  // Check if all required fields are provided
+  
   if (
     !id ||
     !title ||

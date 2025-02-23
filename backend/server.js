@@ -10,16 +10,13 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// Middleware
 app.use(bodyParser.json());
 
-// Check if MONGODB_URI is defined
 if (!process.env.MONGODB_URI) {
   console.error("MONGODB_URI is not defined in the .env file");
   process.exit(1);
 }
 
-// MongoDB connection
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
@@ -29,7 +26,6 @@ mongoose
     console.error("Failed to connect to MongoDB", err);
   });
 
-// Routes
 const labelsRouter = require("./routes/labels");
 const mealsRouter = require("./routes/meals");
 
